@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Press Release</title>
+
+<link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/camera.css">
+    <link rel="stylesheet" href="css/owl-carousel.css">
+
+<script type="text/javascript">
+
+	function getyr() {
+		var qry = window.location.search;
+		if (qry!=null && qry.includes("year")) {
+			var yr = qry.substr(6,4);
+		} else { yr= "All News"; }
+		return yr;
+      }
+
+
+	function tomonth(x) {
+		var mon = new String;
+		switch (x) {
+			case '01': mon='Jan' ; break;
+			case '02': mon='Feb' ; break;
+			case '03': mon='Mar' ; break;
+			case '04': mon='Apr' ; break;
+			case '05': mon='May' ; break;
+			case '06': mon='Jun' ; break;
+			case '07': mon='Jul' ; break;
+			case '08': mon='Aug' ; break;
+			case '09': mon='Sep' ; break;
+			case '10': mon='Oct' ; break;
+			case '11': mon='Nov' ; break;
+			case '12': mon='Dec' ; break;
+			default: mon=null;
+		}
+		return mon;
+	}
+	
+        $(function() {
+    
+   		//alert(getyr())
+       var data = []
+    	
+       $.getJSON('pr.json', function(data) {
+		   
+			var pubdate = new String()
+			var pubyear = new String()
+			var yr = getyr()
+			
+			if (yr=="All News") {yr= null }
+			
+			
+			var tblRow = "<tr >" + "<td  colspan=3 width='100%' style='font-weight:bold; background-color:lightgray;' ><b>" + getyr()+ "</b></td></tr>"   		
+			$(tblRow).appendTo("#pressrelease tbody")
+					
+           $.each(data.news, function(i, f) {
+			  pubdate =  f.published
+		      pubyear =  pubdate.substr(0,4)
+			  if (yr==null) {
+				 	 var tblRow = "<tr>" + "<td style='font-weight:bold'>" + pubdate.substr(0,4)+" "+tomonth(pubdate.substr(5,2))+ "</td>" + "<td><b>" + pubdate.substr(0,10) + "</td>" +  "<td>" + f.title + "</td>" + "</tr>"
+               		$(tblRow).appendTo("#pressrelease tbody")
+				 } else {
+			  if (pubyear==yr) {
+              		var tblRow = "<tr>" + "<td style='font-weight:bold'>" + tomonth(pubdate.substr(5,2)) + "</td>" + "<td>" + pubdate.substr(0,10) + "</td>" +  "<td>" + f.title + "</td>" + "</tr>"
+               		$(tblRow).appendTo("#pressrelease tbody")
+		     } 
+				 }
+         })
+    
+       })
+    
+    })
+	</script>
+
+</head>
+
+</head>
+
+<body>
+<div class="page">
+      <!--
+      ========================================================
+      							HEADER
+      ========================================================
+      
+      
+      -->
+      <header>
+        <div class="container">
+          <div class="brand">
+            <h1 class="brand_name"><a href="./">Business</a></h1>
+            <p class="brand_slogan">Company</p>
+          </div><a href="callto:#" class="fa-phone">800-2345-6789</a>
+          <p>One of our representatives will happily contact you within 24 hours. For urgent needs call us at</p>
+        </div>
+        <div id="stuck_container" class="stuck_container">
+          <div class="container">
+            <nav class="nav">
+              <ul data-type="navbar" class="sf-menu">
+                <li class="active"><a href="pressrelease.html">Home</a>
+                </li>
+                <li><a href="#">About</a>
+                  <ul>
+                    <li><a href="#">Lorem ipsum dolor</a></li>
+                    <li><a href="#">Conse ctetur adipisicing</a></li>
+                    <li><a href="#">Elit sed do eiusmod
+                        <ul>
+                          <li><a href="#">Lorem ipsum</a></li>
+                          <li><a href="#">Conse adipisicing</a></li>
+                          <li><a href="#">Sit amet dolore</a></li>
+                        </ul></a></li>
+                    <li><a href="#">Incididunt ut labore</a></li>
+                    <li><a href="#">Et dolore magna</a></li>
+                    <li><a href="#">Ut enim ad minim</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Services</a>
+                </li>
+                <li><a href="#">FAQS</a>
+                </li>
+                <li><a href="#">Contacts</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <!--
+      ========================================================
+                                  CONTENT
+      ========================================================
+      -->
+       <main>
+     <section class="camera_container">
+	<div class="spr-ir-news-years">
+		<ul id="yearlist">
+			<li class="spr-ir-news-years-first"><a href="pressrelease.html" style="font-weight:bold">All News</a></li>
+			<li class="spr-ir-year-label">By Year:</li>
+            <li><a href="pressrelease.html?year=2016">2016</a></li>
+            <li><a href="pressrelease.html?year=2015">2015</a></li>
+            <li><a href="pressrelease.html?year=2014">2014</a></li>
+            <li><a href="pressrelease.html?year=2013">2013</a></li>
+            <li><a href="pressrelease.html?year=2012">2012</a></li>
+            <li><a href="pressrelease.html?year=2011">2011</a></li>
+        </ul>				
+	</div> 
+ 	<div>
+       <table id= "pressrelease" border=0  width="90%" align="center">
+            <thead>
+                <th width="10%"></th>
+                <th width="15%"></th>
+                <th width="75%"></th>
+            </thead>
+            <tbody>
+    
+           </tbody>
+       </table>
+   	</div>
+ 
+    </section>
+    </main>
+</div>
+</body>
+</html>
