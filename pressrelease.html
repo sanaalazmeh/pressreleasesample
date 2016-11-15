@@ -91,34 +91,23 @@
       
       
       -->
-      <header>
-        <div class="container">
-          <div class="brand">
-            <h1 class="brand_name"><a href="./">Business</a></h1>
-            <p class="brand_slogan">Company</p>
-          </div><a href="callto:#" class="fa-phone">800-2345-6789</a>
-          <p>One of our representatives will happily contact you within 24 hours. For urgent needs call us at</p>
-        </div>
-        <div id="stuck_container" class="stuck_container">
-          <div class="container">
-            <nav class="nav">
-              <ul data-type="navbar" class="sf-menu">
+      <header id="header" class="header">  
+            <nav class="navbar navbar-default" id="stuck_container">
+              <div class="container-fluid"> 
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <div>
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#defaultNavbar1" ><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                  <h1 class="brand_name"><a href="./">Business</a></h1>
+                  <p class="brand_slogan">Company</p>
+                </div>
+                 </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="defaultNavbar1" style="float: right;">
+                  <ul class="nav navbar-nav">
                 <li class="active"><a href="pressrelease.html">Home</a>
                 </li>
                 <li><a href="#">About</a>
-                  <ul>
-                    <li><a href="#">Lorem ipsum dolor</a></li>
-                    <li><a href="#">Conse ctetur adipisicing</a></li>
-                    <li><a href="#">Elit sed do eiusmod
-                        <ul>
-                          <li><a href="#">Lorem ipsum</a></li>
-                          <li><a href="#">Conse adipisicing</a></li>
-                          <li><a href="#">Sit amet dolore</a></li>
-                        </ul></a></li>
-                    <li><a href="#">Incididunt ut labore</a></li>
-                    <li><a href="#">Et dolore magna</a></li>
-                    <li><a href="#">Ut enim ad minim</a></li>
-                  </ul>
                 </li>
                 <li><a href="#">Services</a>
                 </li>
@@ -127,9 +116,11 @@
                 <li><a href="#">Contacts</a>
                 </li>
               </ul>
+              </div>
+                <!-- /.navbar-collapse --> 
+              </div>
+              <!-- /.container-fluid --> 
             </nav>
-          </div>
-        </div>
       </header>
       <!--
       ========================================================
